@@ -57,10 +57,9 @@ jobs:
 
       - name: 自定义插件下载3
         run: |
-          git clone https://github.com/coolsnowwolf/lede
           cd package
-          mkdir lede-packages
-          cd lede-packages
+          mkdir openwrt-packages
+          cd openwrt-packages
           git clone https://github.com/kenzok8/openwrt-packages
           git clone https://github.com/kenzok8/small
           git clone https://github.com/tzxiaozhen88/luci-app-koolproxyR
@@ -153,7 +152,7 @@ jobs:
           # 常用LuCI插件选择:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-adbyby-plus=n
-          CONFIG_PACKAGE_luci-app-flowoffload=y
+          CONFIG_PACKAGE_luci-app-flowoffload=n
           CONFIG_PACKAGE_luci-app-upnp=n
           CONFIG_PACKAGE_luci-app-ssr-plus=n
           CONFIG_PACKAGE_luci-app-koolproxyR=y
@@ -192,10 +191,10 @@ jobs:
           EOF
 
           # LuCI主题:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-theme-argon=y
+          # cat >> .config <<EOF
+          # CONFIG_PACKAGE_luci-theme-argon=y
           # CONFIG_PACKAGE_luci-theme-netgear=y
-          EOF
+          # EOF
 
           # 常用软件包:
           # cat >> .config <<EOF
